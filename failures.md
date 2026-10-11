@@ -30,3 +30,18 @@
 - **Fix:** Restored permissions with `chmod 755 ~/data`. Verified with `ls -ld ~/data` showing `drwxr-xr-x`, then `./backup.sh` logged `[OK] Backup created` and exited with code 0, and the backup folder contained `report.txt` and `notes.txt`.
 
 - **Prevention:** The script should also test that the source is readable (`[ -r "$SRC" ]`), not only that it exists. A failed run should not leave an empty backup folder that looks like a successful one, so writing to a temporary folder and renaming it only on success would be safer. Both are changes I would make, not features the script has now.
+
+## 3. Backup fails: destination unavailable
+
+- **Symptom:** With the backup destination set to `/mnt/nonexistent`, `./backup_bad.sh` printed a mkdir permission error and an rsync error, logged `[ERROR] rsync failed with exit code 11`, and exited with code 1. [verify: exit code 11 and the messages]
+
+- **Investigation:**
+  - `tail -3 ~/logs/backup.log` showed the rsync failure and exit code 11.
+  - `ls -ld /mnt/nonexistent` returned "No such file or directory", so the destination path did not exist.
+  - `df -h /mnt` showed no separate disk mounted there. [verify]
+
+- **Root cause:** The destination path did not exist, and the script could not create it as a normal user. In a real environment the same symptom comes from an unmounted external disk, a disconnected NAS or network share, or a typo in the destination path.
+
+- **Fix:** Pointed the destination back to `~/backups` by using the original script. Verified by running `./backup.sh`, which logged `[OK] Backup created` and exited with code 0.
+
+- **Prevention:** Check that the destination exists and is writable before starting (`[ -d "$DEST" ] && [ -w "$DEST" ]`), and log a clear message if not. For removable or network storage, check the mount with `mountpoint` first. These are improvements I would make, not features the script has now.
