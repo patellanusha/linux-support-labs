@@ -1,0 +1,2 @@
+*/15 * * * * /home/anusha/linux-support-labs/01-server-health-backup/health_check.sh
+0 * * * * /home/anusha/linux-support-labs/01-server-health-backup/backup.sh
