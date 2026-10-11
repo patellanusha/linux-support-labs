@@ -1,0 +1,20 @@
+2026-10-11 20:53:32 [OK] Backup created: backup_2026-10-11_205332
+2026-10-11 20:53:32 [OK] Retention cleanup done (older than 7 days)
+2026-10-11 20:53:55 [OK] Backup created: backup_2026-10-11_205355
+2026-10-11 20:53:55 [OK] Retention cleanup done (older than 7 days)
+2026-10-11 20:59:41 [OK] Backup created: backup_2026-10-11_205941
+2026-10-11 20:59:41 [OK] Retention cleanup done (older than 7 days)
+2026-10-11 21:16:01 [OK] Backup created: backup_2026-10-11_211601
+2026-10-11 21:16:01 [OK] Retention cleanup done (older than 7 days)
+2026-10-11 21:23:09 [ERROR] Source /home/anusha/data not found
+2026-10-11 21:23:50 [ERROR] Source /home/anusha/data not found
+2026-10-11 21:25:50 [OK] Backup created: backup_2026-10-11_212550
+2026-10-11 21:25:50 [OK] Retention cleanup done (older than 7 days)
+2026-10-11 22:00:01 [OK] Backup created: backup_2026-10-11_220001
+2026-10-11 22:00:01 [OK] Retention cleanup done (older than 7 days)
+2026-10-11 22:28:01 [ERROR] rsync failed with exit code 23
+2026-10-11 22:30:12 [OK] Backup created: backup_2026-10-11_223011
+2026-10-11 22:30:12 [OK] Retention cleanup done (older than 7 days)
+2026-10-11 22:34:28 [ERROR] rsync failed with exit code 11
+2026-10-11 22:35:25 [OK] Backup created: backup_2026-10-11_223525
+2026-10-11 22:35:25 [OK] Retention cleanup done (older than 7 days)
